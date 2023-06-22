@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://di35lr6s4g6ob"]
+
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_ddnwt"]
+[ext_resource type="Texture2D" uid="uid://blibbd86uhq8t" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/p1_walk.png" id="1_ff1jq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysqid"]
+atlas = ExtResource("1_ff1jq")
+region = Rect2(0, 0, 66, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu6q5"]
+atlas = ExtResource("1_ff1jq")
+region = Rect2(66, 0, 66, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqh1b"]
+atlas = ExtResource("1_ff1jq")
+region = Rect2(132, 0, 66, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ona"]
+atlas = ExtResource("1_ff1jq")
+region = Rect2(0, 93, 66, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oyw2"]
+atlas = ExtResource("1_ff1jq")
+region = Rect2(66, 93, 66, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqptl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysqid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu6q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqh1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0ona")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oyw2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbmep"]
+size = Vector2(66, 92)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 6
+script = ExtResource("1_ddnwt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oqptl")
+animation = &"walk"
+frame_progress = 0.952762
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sbmep")

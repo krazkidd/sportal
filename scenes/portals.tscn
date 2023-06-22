@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cldbxpf5djjj0"]
+
+[ext_resource type="PackedScene" uid="uid://cy8ra0ft43vbw" path="res://scenes/portal.tscn" id="1_67ohu"]
+[ext_resource type="Script" path="res://scripts/Portals.cs" id="1_vbirm"]
+
+[node name="Portals" type="Node" groups=["portals"]]
+script = ExtResource("1_vbirm")
+
+[node name="GreenPortal" parent="." instance=ExtResource("1_67ohu")]
+position = Vector2(-46, 1)
+
+[node name="RedPortal" parent="." instance=ExtResource("1_67ohu")]
+position = Vector2(46, 0)
