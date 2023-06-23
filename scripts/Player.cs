@@ -8,8 +8,24 @@ public partial class Player : CharacterBody2D
 	private const float JUMP_VELOCITY = -400.0f;
 	private readonly float GRAVITY = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
+	private bool _isInPortal = false;
 
 	private AnimatedSprite2D animatedSprite2D;
+
+    public bool IsInPortal
+	{
+		get
+		{
+			return _isInPortal;
+		}
+		set
+		{
+			_isInPortal = value;
+
+			// disable collisions with the world while in the portal
+			SetCollisionMaskValue((int)Sportal.CollisionLayer.World, !value);
+		}
+	}
 
 	public override void _Ready()
 	{
@@ -58,11 +74,5 @@ public partial class Player : CharacterBody2D
 
 		MoveAndSlide();
 	}
-
-	#region IPortable
-
-    public bool IsInPortal { get; set; }
-
-	#endregion
 
 }
