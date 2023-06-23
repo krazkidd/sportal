@@ -9,6 +9,9 @@ public partial class Portal : Area2D
 	[Signal]
 	public delegate void PlayerExitedPortalEventHandler(Player player);
 
+	[Export]
+	public Vector2 Orientation { get; set; } = new Vector2(0.0f, 1.0f);
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

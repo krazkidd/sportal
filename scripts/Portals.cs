@@ -45,8 +45,11 @@ public partial class Portals : Node
 
 	private void Teleport(Player player, Portal source, Portal destination)
 	{
-		Vector2 positionOffset = player.GlobalPosition - source.GlobalPosition;
-		player.GlobalPosition = destination.GlobalPosition + positionOffset;
+		Vector2 positionOffset = destination.GlobalPosition - source.GlobalPosition;
+		float rotationOffset = Mathf.Acos((-source.Orientation).Dot(destination.Orientation));
+
+		player.GlobalPosition = destination.GlobalPosition + ((player.GlobalPosition + positionOffset) - destination.GlobalPosition).Rotated(rotationOffset);
+		player.Velocity = player.Velocity.Rotated(rotationOffset);
 
 		EmitSignal(SignalName.PlayerTeleported, player, source, destination);
 	}
