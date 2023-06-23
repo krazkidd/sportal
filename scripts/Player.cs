@@ -1,8 +1,11 @@
 using Godot;
 using System;
+using Sportal;
 
-public partial class Player : CharacterBody2D
+public partial class Player : CharacterBody2D,
+	IPortable
 {
+
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 
@@ -58,4 +61,11 @@ public partial class Player : CharacterBody2D
 
 		MoveAndSlide();
 	}
+
+	#region IPortable
+
+    public bool IsInPortal { get; set; }
+
+	#endregion
+
 }
