@@ -1,9 +1,7 @@
 using Godot;
 using System;
-using Sportal;
 
-public partial class Player : CharacterBody2D,
-	IPortable
+public partial class Player : CharacterBody2D
 {
 
 	public const float Speed = 300.0f;

@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using Sportal;
 
 public partial class Portal : Area2D
 {
@@ -30,7 +29,8 @@ public partial class Portal : Area2D
 			{
 				p.IsInPortal = false;
 
-				EmitSignal(SignalName.PlayerExitedPortal, p);
+				// we emit this signal elsewhere
+				//EmitSignal(SignalName.PlayerExitedPortal, p);
 			}
 		};
 	}
@@ -40,10 +40,12 @@ public partial class Portal : Area2D
 	{
 	}
 
-	public void TeleportTo(IPortable portable, Portal destination)
+	public void TeleportTo(Player player, Portal destination)
 	{
-		Vector2 positionOffset = portable.GlobalPosition - GlobalPosition;
-		portable.GlobalPosition = destination.GlobalPosition + positionOffset;
+		Vector2 positionOffset = player.GlobalPosition - GlobalPosition;
+		player.GlobalPosition = destination.GlobalPosition + positionOffset;
+
+		destination.EmitSignal(SignalName.PlayerExitedPortal, player);
 	}
 
 }

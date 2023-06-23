@@ -11,7 +11,7 @@ public partial class Level : Node2D
 		{
 			if (node is Portals portals)
 			{
-				portals.PortalActivated += (player, source, destination) => source.TeleportTo(player, destination);
+				portals.PlayerTeleported += (player, source, destination) => GD.Print("Player teleported!");
 			}
 		}
 	}
