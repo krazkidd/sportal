@@ -59,7 +59,6 @@ collision_layer = 4
 script = ExtResource("1_ahk4r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 0.717313
 texture = ExtResource("1_ks4jt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
