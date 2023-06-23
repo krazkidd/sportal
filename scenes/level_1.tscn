@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://wocnwc6hh6us"]
+[gd_scene load_steps=6 format=3 uid="uid://wocnwc6hh6us"]
 
 [ext_resource type="PackedScene" uid="uid://di35lr6s4g6ob" path="res://scenes/player.tscn" id="1_hlv5o"]
 [ext_resource type="Script" path="res://scripts/Level.cs" id="1_jh0t0"]
+[ext_resource type="PackedScene" uid="uid://d3yrp0e1c2d5s" path="res://scenes/death_zone.tscn" id="2_en1uu"]
 [ext_resource type="PackedScene" uid="uid://dd1vru7hyjcn7" path="res://scenes/tile_map.tscn" id="2_p7rr2"]
 [ext_resource type="PackedScene" uid="uid://cldbxpf5djjj0" path="res://scenes/portals.tscn" id="4_2fvhk"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_jh0t0")
+
+[node name="DeathZone" parent="." instance=ExtResource("2_en1uu")]
+position = Vector2(0, 283)
 
 [node name="TileMap" parent="." instance=ExtResource("2_p7rr2")]
 layer_0/tile_data = PackedInt32Array(65532, 262144, 9, 65533, 262144, 8, 65534, 262144, 8, 65535, 262144, 8, 0, 262144, 8, 1, 262144, 7)
